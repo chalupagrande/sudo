@@ -14,14 +14,13 @@ app.use(bodyParser.json())
 const port = process.env.VCAP_APP_PORT || 3000;
 const host = process.env.VCAP_APP_PORT || 'localhost';
 
+
+
 router.use((req,res,next)=>{
-  console.log(req.body)
+  res.send(express.static(__dirname + '/client'))
   next()
 })
-
-router.use(express.static('client'))
 app.use('/', router)
-
 
 app.listen(port)
 console.log(`listening on ${port}`)
