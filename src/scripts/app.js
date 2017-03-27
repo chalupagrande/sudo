@@ -11,7 +11,7 @@ document.querySelector('button').addEventListener('click', ()=>{
                   },
                 body: payload,
                 mode: 'cors',
-                cache: 'default' 
+                cache: 'default'
               };
   fetch('/api', myInit)
   .then((res)=>{
