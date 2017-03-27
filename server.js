@@ -11,16 +11,20 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 //FOR BLUEMIX
-const port = process.env.VCAP_APP_PORT || 3000;
-const host = process.env.VCAP_APP_PORT || 'localhost';
+const port = process.env.PORT || 3000;
+const host = process.env.HOST || 'localhost';
 
 router.use((req,res,next)=>{
-  console.log(req.body)
   next()
 })
 
 router.use(express.static('client'))
 app.use('/', router)
+
+app.post('/api', (req, res)=>{
+  console.log(req.body)
+  res.send("You typed this: " + req.body.value)
+})
 
 
 app.listen(port)

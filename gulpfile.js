@@ -48,6 +48,6 @@ gulp.task('compile-sass', ()=>{
 gulp.task('default', ['serve'], ()=>{
   gulp.watch(['src/scripts/**/*.js'],['compile-js'])
   gulp.watch(['src/styles/**/*.scss'],['compile-sass'])
-  gulp.watch(['src/styles/**/*.scss', 'src/scripts/**/*.js', 'dist/*.html']).on('change', browserSync.reload)
+  gulp.watch(['src/styles/**/*.scss', 'src/scripts/**/*.js', 'client/*.html']).on('change', browserSync.reload)
   console.log('running gulp task!')
 })
