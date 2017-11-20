@@ -2,3 +2,13 @@ body{
   background-color:blue;
   color:white;
 }
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 300px;
+
+  & button {
+    width: 100px;
+  }
+}

@@ -15,6 +15,35 @@
   <div class="result">
     <p id="server-result">Server result here</p>
   </div>
+
+  <hr>
+
+  <h1>Submit Entry To Server</h1>
+  <form>
+    <label for="name">Name:</label>
+    <input id="name" type="text" placeholder="John Doe">
+    <label for="email">Email:</label>
+    <input id="email" type="email" placeholder="JohnDoe@domain.com">
+    <label for="age">Age:</label>
+    <input id="age" type="text" placeholder="30">
+    <label for="gender">Gender:</label>
+    <select name="gender" id="gender">
+      <option value="male">male</option>
+      <option value="female">female</option>
+    </select>
+    <label for="state">State:</label>
+    <input id="state" type="text" placeholder="Texas">
+    <label for="number">Pick a Number</label>
+    <select name="number" id="number">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="form-result">Result: <span id="response"></span></div>
   <script src="scripts/app.js"></script>
 </body>
 </html>

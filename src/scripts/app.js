@@ -25,4 +25,38 @@ document.querySelector('#send-text').addEventListener('click', ()=>{
 })
 
 //SUBMIT FORM TO THE SERVER
+let form = document.querySelector('form')
+form.addEventListener('submit', ()=>{
+  event.preventDefault()
+  let payload = {
+    name: form.querySelector('#name').value,
+    email: form.querySelector('#email').value,
+    age: +form.querySelector('#age').value,
+    gender: form.querySelector('#gender').value,
+    state: form.querySelector('#state').value,
+    results: [+form.querySelector('#number').value]  
+  }
+  console.log("payload", payload)
+
+  let myInit = { 
+    method: 'POST',
+    headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+      },
+    body: JSON.stringify(payload),
+    mode: 'cors',
+    cache: 'default'
+  };
+
+  fetch('/api/entry', myInit)
+    .then((res)=>{
+      console.log(res)
+      return res.json()
+    })
+    .then((json)=>{
+      console.log(json)
+      document.getElementById('response').innerText = json.success
+    })
+})
 
