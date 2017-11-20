@@ -1,4 +1,5 @@
-document.querySelector('button').addEventListener('click', ()=>{
+//SEND TEXT TO THE SERVER
+document.querySelector('#send-text').addEventListener('click', ()=>{
   let val = document.querySelector('input').value
   let payload = JSON.stringify({value: val})
 
@@ -22,3 +23,6 @@ document.querySelector('button').addEventListener('click', ()=>{
     document.getElementById('server-result').innerText = text
   })
 })
+
+//SUBMIT FORM TO THE SERVER
+

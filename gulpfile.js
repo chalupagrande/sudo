@@ -45,6 +45,8 @@ gulp.task('compile-sass', ()=>{
              .pipe(sourcemaps.write('.'))
              .pipe(gulp.dest('client/styles'))
 })
+
+gulp.task('compile', ['compile-js', 'compile-sass']);
 gulp.task('default', ['serve'], ()=>{
   gulp.watch(['src/scripts/**/*.js'],['compile-js'])
   gulp.watch(['src/styles/**/*.scss'],['compile-sass'])
