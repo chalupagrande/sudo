@@ -3,8 +3,8 @@ applications:
 - path: .
   memory: 256M
   instances: 1
-  domain: mybluemix.net
-  name: starter-pack
-  host: starter-pack
+  domain: herokuapp.com
+  name: sudo
+  host: sudo
   disk_quota: 512M
-  command: node server.js
+  command: npm start
