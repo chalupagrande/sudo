@@ -3,8 +3,8 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-// const db = require('./db')
-// const EntryModel = require('./entryModel')
+const db = require('./db')
+const EntryModel = require('./entryModel')
 
 const app = express()
 const router = express.Router()
@@ -30,22 +30,23 @@ app.post('/api', (req, res)=>{
   res.send("You typed this: " + req.body.value)
 })
 
-// app.post('/api/entry', (req, res)=>{
-//   let entry = new EntryModel(req.body)
-//   entry.save((err, entry) =>{
-//     if(err) res.send({
-//       success: false,
-//       msg: err
-//     })
-//     else {
-//       res.send({
-//         success: true,
-//         msg: 'Entry Saved',
-//         entry,
-//       })
-//     }
-//   })
-// })
+app.post('/api/entry', (req, res)=>{
+  let entry = new EntryModel(req.body)
+  entry.save((err, entry) =>{
+    if(err) res.send({
+      success: false,
+      msg: err
+    })
+    else {
+      res.send({
+        success: true,
+        msg: 'Entry Saved',
+        entry,
+      })
+    }
+  })
+})
 
 app.listen(port)
 console.log(`listening on ${port}`)
+console.log(`DB URI ${process.env.MONGODB_URI}`)

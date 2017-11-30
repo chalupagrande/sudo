@@ -5,8 +5,9 @@ const mongoOptions = {
 }
 //set Promise library for mongoose
 mongoose.Promise = global.Promise
+const db_uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/test'
 
-mongoose.connect('mongodb://localhost:27017/test', mongoOptions, err => {
+mongoose.connect(db_uri, mongoOptions, err => {
   if(!err) console.log('Connection to database succeeded')
   else console.log('ERROR: FAILED TO CONNECT TO DATABASE \n' + err)
 });
